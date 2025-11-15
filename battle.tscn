@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvtxiohx0l42i"]
+
+[ext_resource type="Texture2D" uid="uid://6eay48ucdnv2" path="res://icon.svg" id="1_ip7xm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ip7xm"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -504.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.19085312, 0, 0.9289534, 0.508)
+layout_mode = 0
+offset_right = 647.0
+offset_bottom = 647.0
+texture = SubResource("CanvasTexture_ip7xm")
+
+[node name="EnemyContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.99700004
+anchor_right = 0.99700004
+offset_left = -264.54407
+offset_top = 10.0
+offset_right = -136.54407
+offset_bottom = 169.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+layout_mode = 2
+tooltip_text = "Size set weirdly and probably won't scale properly
+DOUBLE CHECK"
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer"]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+layout_mode = 2
+texture = ExtResource("1_ip7xm")
+
+[node name="PlayerContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -341.0
+offset_right = 170.0
+offset_bottom = -181.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="Enemy" type="TextureRect" parent="PlayerContainer"]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_ip7xm")
+stretch_mode = 5
+
+[node name="ProgressBar2" type="ProgressBar" parent="PlayerContainer"]
+layout_mode = 2
+fill_mode = 3

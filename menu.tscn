@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://d128uhd61y530"]
+
+[ext_resource type="Script" uid="uid://ce5lf762kigmb" path="res://battleOptionSelect.gd" id="1_mae5d"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mae5d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 186.0
+offset_bottom = 22.0
+alignment = 1
+
+[node name="AttackButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../FleeButton")
+focus_neighbor_right = NodePath("../SwitchOutButton")
+theme_override_font_sizes/font_size = 16
+action_mode = 0
+text = "Attack"
+
+[node name="SwitchOutButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../AttackButton")
+focus_neighbor_right = NodePath("../FleeButton")
+action_mode = 0
+text = "Switch"
+icon_alignment = 1
+
+[node name="FleeButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../SwitchOutButton")
+focus_neighbor_right = NodePath("../AttackButton")
+action_mode = 0
+text = "Flee"

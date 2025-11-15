@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0j0tuffjojdw"]
+
+[ext_resource type="PackedScene" uid="uid://dj1dgs8bq2esi" path="res://player.tscn" id="1_4f5yr"]
+[ext_resource type="Texture2D" uid="uid://6eay48ucdnv2" path="res://icon.svg" id="2_amjyl"]
+[ext_resource type="Script" uid="uid://dbueq4ap24q8" path="res://battler.gd" id="3_kjc0s"]
+[ext_resource type="PackedScene" uid="uid://d128uhd61y530" path="res://menu.tscn" id="4_tmhno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmhno"]
+size = Vector2(527, 441)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_amjyl"]
+blend_mode = 2
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjc0s"]
+size = Vector2(136, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amjyl"]
+size = Vector2(127, 132)
+
+[node name="Safari" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4f5yr")]
+position = Vector2(24, 195)
+
+[node name="Battle" type="Node2D" parent="."]
+script = ExtResource("3_kjc0s")
+
+[node name="Testing" type="Node" parent="."]
+
+[node name="Area2D2" type="Area2D" parent="Testing"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Testing/Area2D2"]
+visible = false
+position = Vector2(884.5, 224.5)
+shape = SubResource("RectangleShape2D_tmhno")
+
+[node name="Area2D" type="Area2D" parent="Testing"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Testing/Area2D"]
+visible = false
+material = SubResource("CanvasItemMaterial_amjyl")
+texture = ExtResource("2_amjyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Testing/Area2D"]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_kjc0s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Testing"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Testing/StaticBody2D"]
+visible = false
+modulate = Color(0.6857268, 0.16988146, 0.7367799, 1)
+position = Vector2(429, 197)
+texture = ExtResource("2_amjyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Testing/StaticBody2D"]
+visible = false
+position = Vector2(428.5, 196)
+shape = SubResource("RectangleShape2D_amjyl")
+
+[node name="Control" parent="." instance=ExtResource("4_tmhno")]
+
+[connection signal="area_entered" from="Testing/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Testing/Area2D" to="Player" method="_on_area_2d_body_entered"]
