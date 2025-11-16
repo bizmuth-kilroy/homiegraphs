@@ -1,0 +1,292 @@
+[gd_scene load_steps=25 format=3 uid="uid://cj0dlsjcl0b2d"]
+
+[ext_resource type="Script" uid="uid://b5ephg1b2g6ms" path="res://fly_battle.gd" id="1_jw2i5"]
+[ext_resource type="Texture2D" uid="uid://jnodr444km6h" path="res://battleBackgroung.png" id="2_qkt6l"]
+[ext_resource type="Texture2D" uid="uid://c2o080mjwnu6n" path="res://AppleBattleSprite.png" id="3_retjb"]
+[ext_resource type="Script" uid="uid://dnaai86dtmxg7" path="res://plrhlthbar.gd" id="4_xxkp7"]
+[ext_resource type="Texture2D" uid="uid://cxdl4k7iad0wg" path="res://Flyflyfly.png" id="5_qh0ua"]
+[ext_resource type="Script" uid="uid://b70gyr8xjptvc" path="res://enmy_health_bar.gd" id="6_fuk4e"]
+[ext_resource type="Texture2D" uid="uid://dyt4nb85ltc8q" path="res://purp-button.png" id="7_wk0uk"]
+[ext_resource type="Script" uid="uid://bxwkwveltmchy" path="res://minigameplayer.gd" id="8_k8acl"]
+[ext_resource type="Texture2D" uid="uid://d4gacn07kwada" path="res://Apple-Sheet.png" id="9_2krpu"]
+[ext_resource type="Texture2D" uid="uid://bsb3f1tmpmnkd" path="res://fly_fly.png" id="10_ofckl"]
+[ext_resource type="Texture2D" uid="uid://dbcd2kkae13jt" path="res://tree_borders.png" id="11_ofckl"]
+[ext_resource type="Texture2D" uid="uid://cwavsd1ljqlk8" path="res://Flyoverworld.png" id="12_4o16v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t8i5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhv3b"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6t8i5"]
+a = Vector2(166, 184)
+b = Vector2(-264, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dw4jg"]
+a = Vector2(215, -183)
+b = Vector2(-216, -183)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0npn6"]
+a = Vector2(215, -184)
+b = Vector2(215, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mhv3b"]
+a = Vector2(-215, -184)
+b = Vector2(-216, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw2i5"]
+size = Vector2(119.99994, 140)
+
+[sub_resource type="Animation" id="Animation_6t8i5"]
+resource_name = "Bearclawatk"
+length = 5.0
+step = 0.3333
+
+[sub_resource type="Animation" id="Animation_dw4jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DefenseMinigame/ZippyFly:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DefenseMinigame/ZippyFly:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-208.99997, -37.999996)]
+}
+
+[sub_resource type="Animation" id="Animation_4o16v"]
+resource_name = "flyzipattack1"
+length = 5.0
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DefenseMinigame/ZippyFly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8333334, 1, 1.5, 1.75, 2.1666667, 2.6666667, 3.08, 3.4333336),
+"transitions": PackedFloat32Array(0.0583147, 0.06698588, 0.25881627, 1, 0.0583147, 0.29730177, 0.0583147, 0.29730177, 0.0583147),
+"update": 0,
+"values": [Vector2(-200, -150), Vector2(200, -100), Vector2(200, -100), Vector2(-200, -50), Vector2(-200, -50), Vector2(200, -50), Vector2(-200, 0), Vector2(200, 50), Vector2(-200, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DefenseMinigame/ZippyFly:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1.62, 2, 2.6166668, 3.0833333),
+"transitions": PackedFloat32Array(1, 3.4822013, 4.141059, 2.3784142, 4.141059, 2.3784142, 4.141059),
+"update": 0,
+"values": [-2.2305307840487534, -2.2305307840487534, 0.5358160803622589, -2.2305307840487534, 0.5358160803622589, -2.2305307840487534, 0.5358160803622589]
+}
+
+[sub_resource type="Animation" id="Animation_ua38q"]
+resource_name = "flyhit"
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10144106, 0.19921872, 0.28773662, 0.34582335, 0.42245117, 0.50859344, 0.5998869, 0.6666667, 0.7557509),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0npn6"]
+_data = {
+&"Bearclawatk": SubResource("Animation_6t8i5"),
+&"RESET": SubResource("Animation_dw4jg"),
+&"flyhit": SubResource("Animation_ua38q"),
+&"flyzipattack1": SubResource("Animation_4o16v")
+}
+
+[node name="FlyBattle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jw2i5")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(546.5, 325)
+scale = Vector2(9.5390625, 5.1562505)
+texture = ExtResource("2_qkt6l")
+
+[node name="Button_Manager" type="Node2D" parent="."]
+position = Vector2(422, 398)
+
+[node name="AttackButton" type="Button" parent="Button_Manager"]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 696.0
+offset_bottom = 74.0
+text = "ATTACK"
+
+[node name="SwitchButton" type="Button" parent="Button_Manager"]
+offset_left = 12.0
+offset_top = 93.0
+offset_right = 697.0
+offset_bottom = 148.0
+text = "SWITCH"
+
+[node name="FleeButton" type="Button" parent="Button_Manager"]
+offset_left = 8.0
+offset_top = 164.0
+offset_right = 698.0
+offset_bottom = 219.0
+text = "FLEE"
+
+[node name="Player" type="Sprite2D" parent="."]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+position = Vector2(193, 493)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_retjb")
+
+[node name="PlrHealthBar" type="ProgressBar" parent="Player"]
+offset_left = 126.0
+offset_top = -310.0
+offset_right = 642.0
+offset_bottom = -222.92499
+max_value = 10.0
+fill_mode = 3
+script = ExtResource("4_xxkp7")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+position = Vector2(973, 153)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_qh0ua")
+
+[node name="EnmyHealthBar" type="ProgressBar" parent="Enemy"]
+offset_left = -768.0
+offset_top = 218.0
+offset_right = -251.25928
+offset_bottom = 327.0
+tooltip_text = "Size set weirdly and probably won't scale properly
+DOUBLE CHECK"
+max_value = 10.0
+script = ExtResource("6_fuk4e")
+
+[node name="DefenseMinigame" type="Node2D" parent="."]
+position = Vector2(570, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame"]
+position = Vector2(-4.000005, -3.9999924)
+scale = Vector2(10.80625, 18.414063)
+texture = ExtResource("7_wk0uk")
+
+[node name="PlayerBody" type="CharacterBody2D" parent="DefenseMinigame"]
+motion_mode = 1
+script = ExtResource("8_k8acl")
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame/PlayerBody"]
+position = Vector2(20, 21)
+scale = Vector2(2.6875, 2.5625)
+texture = ExtResource("9_2krpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/PlayerBody"]
+shape = SubResource("CapsuleShape2D_6t8i5")
+
+[node name="hitbox" type="Area2D" parent="DefenseMinigame/PlayerBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/PlayerBody/hitbox"]
+shape = SubResource("CapsuleShape2D_mhv3b")
+
+[node name="Staticareaborder" type="StaticBody2D" parent="DefenseMinigame"]
+position = Vector2(-4, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+position = Vector2(49, -1)
+shape = SubResource("SegmentShape2D_6t8i5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_dw4jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_0npn6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_mhv3b")
+
+[node name="ZippyFly" type="Area2D" parent="DefenseMinigame"]
+position = Vector2(-208.99997, -37.999996)
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/ZippyFly"]
+position = Vector2(-20.000122, 45)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_jw2i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame/ZippyFly"]
+texture = ExtResource("10_ofckl")
+
+[node name="Trees" type="Sprite2D" parent="DefenseMinigame"]
+position = Vector2(-2.0000038, -25)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_ofckl")
+
+[node name="AttackMinigame" type="Node2D" parent="."]
+visible = false
+position = Vector2(570, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackMinigame"]
+position = Vector2(-4.2915344e-06, 7.6293945e-06)
+scale = Vector2(10.80625, 18.414063)
+texture = ExtResource("7_wk0uk")
+
+[node name="Staticareaborder" type="StaticBody2D" parent="AttackMinigame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+position = Vector2(49, -1)
+shape = SubResource("SegmentShape2D_6t8i5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_dw4jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_0npn6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_mhv3b")
+
+[node name="MinigameTimer" type="Timer" parent="."]
+wait_time = 7.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0npn6")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(-70, -17)
+texture = ExtResource("12_4o16v")
+
+[connection signal="pressed" from="Button_Manager/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Button_Manager/SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="pressed" from="Button_Manager/FleeButton" to="." method="_on_flee_button_pressed"]
+[connection signal="area_entered" from="DefenseMinigame/PlayerBody/hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="MinigameTimer" to="." method="_on_minigame_timer_timeout"]

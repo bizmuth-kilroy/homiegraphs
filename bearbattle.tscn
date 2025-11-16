@@ -1,0 +1,508 @@
+[gd_scene load_steps=22 format=3 uid="uid://cn5knss6daxg3"]
+
+[ext_resource type="Script" uid="uid://f8gqmgsgylec" path="res://bearbattle.gd" id="1_3trxa"]
+[ext_resource type="Texture2D" uid="uid://jnodr444km6h" path="res://battleBackgroung.png" id="2_3trxa"]
+[ext_resource type="Texture2D" uid="uid://c2o080mjwnu6n" path="res://AppleBattleSprite.png" id="3_x14ga"]
+[ext_resource type="Script" uid="uid://dnaai86dtmxg7" path="res://plrhlthbar.gd" id="4_6h67h"]
+[ext_resource type="Script" uid="uid://b70gyr8xjptvc" path="res://enmy_health_bar.gd" id="5_7qpf4"]
+[ext_resource type="Texture2D" uid="uid://5vyn1d2sg5kl" path="res://BearSquared.png" id="5_3424f"]
+[ext_resource type="Texture2D" uid="uid://dyt4nb85ltc8q" path="res://purp-button.png" id="6_jwdr6"]
+[ext_resource type="Script" uid="uid://bxwkwveltmchy" path="res://minigameplayer.gd" id="7_qsigi"]
+[ext_resource type="Texture2D" uid="uid://d4gacn07kwada" path="res://Apple-Sheet.png" id="8_4jj4c"]
+[ext_resource type="Texture2D" uid="uid://bp11fsuo0ucaj" path="res://the_bear_claw.png" id="9_3cghh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t8i5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhv3b"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6t8i5"]
+a = Vector2(166, 184)
+b = Vector2(-264, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dw4jg"]
+a = Vector2(215, -183)
+b = Vector2(-216, -183)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0npn6"]
+a = Vector2(215, -184)
+b = Vector2(215, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mhv3b"]
+a = Vector2(-215, -184)
+b = Vector2(-216, 183)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3trxa"]
+radius = 79.624115
+
+[sub_resource type="Animation" id="Animation_6t8i5"]
+resource_name = "Bearclawatk1"
+length = 5.0
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DefenseMinigame/BearClaw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1),
+"transitions": PackedFloat32Array(0.079660006, 0.18946461, 2.9281714),
+"update": 0,
+"values": [Vector2(-300, -100), Vector2(-300, -83), Vector2(300, -83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DefenseMinigame/BearClaw:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DefenseMinigame/BearClaw2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1666666, 1.25, 1.8333334),
+"transitions": PackedFloat32Array(1, 0.20306318, 1),
+"update": 0,
+"values": [Vector2(254, 124.43), Vector2(254, 157), Vector2(-300, 157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DefenseMinigame/BearClaw2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DefenseMinigame/BearClaw3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 2.3333333),
+"transitions": PackedFloat32Array(1, 0.13397177),
+"update": 0,
+"values": [Vector2(-175, -400), Vector2(-175, 300)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DefenseMinigame/BearClaw3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.6666666, 2, 2.4166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DefenseMinigame/BearClaw4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.3333333, 2.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(166, -400), Vector2(166, 300)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DefenseMinigame/BearClaw4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 2.3333333, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DefenseMinigame/BearClaw5:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3, 3.3333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -400), Vector2(0, 300)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DefenseMinigame/BearClaw5:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.6666667, 3, 3.4166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_dw4jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DefenseMinigame/BearClaw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-234, -83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DefenseMinigame/BearClaw:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DefenseMinigame/BearClaw2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(254, 157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DefenseMinigame/BearClaw2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DefenseMinigame/BearClaw3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300, 157)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DefenseMinigame/BearClaw3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DefenseMinigame/BearClaw4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 400)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DefenseMinigame/BearClaw4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Enemy:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3trxa"]
+resource_name = "bearhit"
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10144106, 0.19921872, 0.28773662, 0.34582335, 0.42245117, 0.50859344, 0.5998869, 0.6666667, 0.7557509),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0npn6"]
+_data = {
+&"Bearclawatk1": SubResource("Animation_6t8i5"),
+&"RESET": SubResource("Animation_dw4jg"),
+&"bearhit": SubResource("Animation_3trxa")
+}
+
+[node name="BearBattle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3trxa")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(546.5, 325)
+scale = Vector2(9.5390625, 5.1562505)
+texture = ExtResource("2_3trxa")
+
+[node name="Button_Manager" type="Node2D" parent="."]
+position = Vector2(422, 398)
+
+[node name="AttackButton" type="Button" parent="Button_Manager"]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 696.0
+offset_bottom = 74.0
+text = "ATTACK"
+
+[node name="SwitchButton" type="Button" parent="Button_Manager"]
+offset_left = 12.0
+offset_top = 93.0
+offset_right = 697.0
+offset_bottom = 148.0
+text = "SWITCH"
+
+[node name="FleeButton" type="Button" parent="Button_Manager"]
+offset_left = 8.0
+offset_top = 164.0
+offset_right = 698.0
+offset_bottom = 219.0
+text = "FLEE"
+
+[node name="Player" type="Sprite2D" parent="."]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+position = Vector2(193, 493)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x14ga")
+
+[node name="PlrHealthBar" type="ProgressBar" parent="Player"]
+offset_left = 126.0
+offset_top = -310.0
+offset_right = 642.0
+offset_bottom = -222.92499
+max_value = 10.0
+script = ExtResource("4_6h67h")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+position = Vector2(973, 153)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_3424f")
+
+[node name="EnmyHealthBar" type="ProgressBar" parent="Enemy"]
+offset_left = -768.0
+offset_top = 218.0
+offset_right = -251.25928
+offset_bottom = 327.0
+tooltip_text = "Size set weirdly and probably won't scale properly
+DOUBLE CHECK"
+max_value = 10.0
+script = ExtResource("5_7qpf4")
+
+[node name="DefenseMinigame" type="Node2D" parent="."]
+visible = false
+position = Vector2(570, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame"]
+position = Vector2(-4.000005, -3.9999924)
+scale = Vector2(10.80625, 18.414063)
+texture = ExtResource("6_jwdr6")
+
+[node name="PlayerBody" type="CharacterBody2D" parent="DefenseMinigame"]
+motion_mode = 1
+script = ExtResource("7_qsigi")
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame/PlayerBody"]
+position = Vector2(20, 21)
+scale = Vector2(2.6875, 2.5625)
+texture = ExtResource("8_4jj4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/PlayerBody"]
+shape = SubResource("CapsuleShape2D_6t8i5")
+
+[node name="hitbox" type="Area2D" parent="DefenseMinigame/PlayerBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/PlayerBody/hitbox"]
+shape = SubResource("CapsuleShape2D_mhv3b")
+
+[node name="Staticareaborder" type="StaticBody2D" parent="DefenseMinigame"]
+position = Vector2(-4, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+position = Vector2(49, -1)
+shape = SubResource("SegmentShape2D_6t8i5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_dw4jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_0npn6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_mhv3b")
+
+[node name="BearClaw" type="Area2D" parent="DefenseMinigame"]
+visible = false
+position = Vector2(-234, -83)
+
+[node name="BearClaw" type="Sprite2D" parent="DefenseMinigame/BearClaw"]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(5.7187505, 5.7187505)
+texture = ExtResource("9_3cghh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/BearClaw"]
+position = Vector2(3, 9)
+shape = SubResource("CircleShape2D_3trxa")
+
+[node name="BearClaw2" type="Area2D" parent="DefenseMinigame"]
+visible = false
+position = Vector2(254, 157)
+
+[node name="BearClaw" type="Sprite2D" parent="DefenseMinigame/BearClaw2"]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(5.7187505, 5.7187505)
+texture = ExtResource("9_3cghh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/BearClaw2"]
+position = Vector2(3, 9)
+shape = SubResource("CircleShape2D_3trxa")
+
+[node name="BearClaw3" type="Area2D" parent="DefenseMinigame"]
+visible = false
+position = Vector2(-300, 157)
+
+[node name="BearClaw" type="Sprite2D" parent="DefenseMinigame/BearClaw3"]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(5.7187505, 5.7187505)
+texture = ExtResource("9_3cghh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/BearClaw3"]
+position = Vector2(3, 9)
+shape = SubResource("CircleShape2D_3trxa")
+
+[node name="BearClaw4" type="Area2D" parent="DefenseMinigame"]
+visible = false
+position = Vector2(400, 400)
+
+[node name="BearClaw" type="Sprite2D" parent="DefenseMinigame/BearClaw4"]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(5.7187505, 5.7187505)
+texture = ExtResource("9_3cghh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/BearClaw4"]
+position = Vector2(3, 9)
+shape = SubResource("CircleShape2D_3trxa")
+
+[node name="BearClaw5" type="Area2D" parent="DefenseMinigame"]
+visible = false
+position = Vector2(0, -400)
+
+[node name="BearClaw" type="Sprite2D" parent="DefenseMinigame/BearClaw5"]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(5.7187505, 5.7187505)
+texture = ExtResource("9_3cghh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/BearClaw5"]
+position = Vector2(3, 9)
+shape = SubResource("CircleShape2D_3trxa")
+
+[node name="AttackMinigame" type="Node2D" parent="."]
+visible = false
+position = Vector2(570, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackMinigame"]
+position = Vector2(-4.2915344e-06, 7.6293945e-06)
+scale = Vector2(10.80625, 18.414063)
+texture = ExtResource("6_jwdr6")
+
+[node name="Staticareaborder" type="StaticBody2D" parent="AttackMinigame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+position = Vector2(49, -1)
+shape = SubResource("SegmentShape2D_6t8i5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_dw4jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_0npn6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_mhv3b")
+
+[node name="MinigameTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0npn6")
+}
+
+[connection signal="pressed" from="Button_Manager/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Button_Manager/SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="pressed" from="Button_Manager/FleeButton" to="." method="_on_flee_button_pressed"]
+[connection signal="area_entered" from="DefenseMinigame/PlayerBody/hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="MinigameTimer" to="." method="_on_minigame_timer_timeout"]

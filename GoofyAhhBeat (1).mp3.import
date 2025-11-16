@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddns62khq0vsh"
+path="res://.godot/imported/GoofyAhhBeat (1).mp3-f674a352a512c336085d6c78b11d4f9e.mp3str"
+
+[deps]
+
+source_file="res://GoofyAhhBeat (1).mp3"
+dest_files=["res://.godot/imported/GoofyAhhBeat (1).mp3-f674a352a512c336085d6c78b11d4f9e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

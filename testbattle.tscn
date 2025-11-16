@@ -1,0 +1,197 @@
+[gd_scene load_steps=20 format=3 uid="uid://6ptex0ecjedr"]
+
+[ext_resource type="Script" uid="uid://f8gqmgsgylec" path="res://bearbattle.gd" id="1_ci1k1"]
+[ext_resource type="Texture2D" uid="uid://dqlcu1ls586o7" path="res://blackbox.png" id="2_q05bd"]
+[ext_resource type="Texture2D" uid="uid://6eay48ucdnv2" path="res://icon.svg" id="3_fl3la"]
+[ext_resource type="Script" uid="uid://dnaai86dtmxg7" path="res://plrhlthbar.gd" id="4_spksq"]
+[ext_resource type="Script" uid="uid://b70gyr8xjptvc" path="res://enmy_health_bar.gd" id="5_k343j"]
+[ext_resource type="Texture2D" uid="uid://dyt4nb85ltc8q" path="res://purp-button.png" id="6_7pu1e"]
+[ext_resource type="Script" uid="uid://bxwkwveltmchy" path="res://minigameplayer.gd" id="7_bjdis"]
+[ext_resource type="Texture2D" uid="uid://d4gacn07kwada" path="res://Apple-Sheet.png" id="8_ki84x"]
+[ext_resource type="Script" uid="uid://cmo1lomxaqvaa" path="res://ball_spawner.gd" id="9_otqwi"]
+[ext_resource type="PackedScene" uid="uid://c77ep8ouxu7nb" path="res://ball.tscn" id="10_rbn6a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t8i5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhv3b"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6t8i5"]
+a = Vector2(166, 184)
+b = Vector2(-264, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dw4jg"]
+a = Vector2(215, -183)
+b = Vector2(-216, -183)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0npn6"]
+a = Vector2(215, -184)
+b = Vector2(215, 184)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mhv3b"]
+a = Vector2(-215, -184)
+b = Vector2(-216, 183)
+
+[sub_resource type="Animation" id="Animation_6t8i5"]
+resource_name = "MinigameFadein"
+
+[sub_resource type="Animation" id="Animation_dw4jg"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0npn6"]
+_data = {
+&"MinigameFadein": SubResource("Animation_6t8i5"),
+&"RESET": SubResource("Animation_dw4jg")
+}
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ci1k1")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(546.5, 325)
+scale = Vector2(9.5390625, 5.1562505)
+texture = ExtResource("2_q05bd")
+
+[node name="Button_Manager" type="Node2D" parent="."]
+position = Vector2(422, 398)
+
+[node name="AttackButton" type="Button" parent="Button_Manager"]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 696.0
+offset_bottom = 74.0
+text = "ATTACK"
+
+[node name="SwitchButton" type="Button" parent="Button_Manager"]
+offset_left = 12.0
+offset_top = 93.0
+offset_right = 697.0
+offset_bottom = 148.0
+text = "SWITCH"
+
+[node name="FleeButton" type="Button" parent="Button_Manager"]
+offset_left = 8.0
+offset_top = 164.0
+offset_right = 698.0
+offset_bottom = 219.0
+text = "FLEE"
+
+[node name="Player" type="Sprite2D" parent="."]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+position = Vector2(193, 493)
+scale = Vector2(2, 2)
+texture = ExtResource("3_fl3la")
+
+[node name="PlrHealthBar" type="ProgressBar" parent="Player"]
+offset_left = -8.0
+offset_top = -93.5
+offset_right = 152.0
+offset_bottom = -66.5
+max_value = 10.0
+fill_mode = 3
+script = ExtResource("4_spksq")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+modulate = Color(0.86218154, 0.6718163, 1, 1)
+position = Vector2(973, 153)
+scale = Vector2(2, 2)
+texture = ExtResource("3_fl3la")
+
+[node name="EnmyHealthBar" type="ProgressBar" parent="Enemy"]
+offset_left = -187.0
+offset_top = 26.5
+offset_right = -59.0
+offset_bottom = 53.5
+tooltip_text = "Size set weirdly and probably won't scale properly
+DOUBLE CHECK"
+max_value = 10.0
+script = ExtResource("5_k343j")
+
+[node name="DefenseMinigame" type="Node2D" parent="."]
+visible = false
+position = Vector2(570, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame"]
+position = Vector2(-4.2915344e-06, 7.6293945e-06)
+scale = Vector2(10.80625, 18.414063)
+texture = ExtResource("6_7pu1e")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="DefenseMinigame"]
+motion_mode = 1
+script = ExtResource("7_bjdis")
+
+[node name="Sprite2D" type="Sprite2D" parent="DefenseMinigame/CharacterBody2D"]
+texture = ExtResource("8_ki84x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_6t8i5")
+
+[node name="hitbox" type="Area2D" parent="DefenseMinigame/CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/CharacterBody2D/hitbox"]
+shape = SubResource("CapsuleShape2D_mhv3b")
+
+[node name="BallSpawner" type="Area2D" parent="DefenseMinigame"]
+position = Vector2(-14, -228)
+script = ExtResource("9_otqwi")
+Ball = ExtResource("10_rbn6a")
+
+[node name="Staticareaborder" type="StaticBody2D" parent="DefenseMinigame"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+position = Vector2(49, -1)
+shape = SubResource("SegmentShape2D_6t8i5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_dw4jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_0npn6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DefenseMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_mhv3b")
+
+[node name="AttackMinigame" type="Node2D" parent="."]
+visible = false
+position = Vector2(570, 325)
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackMinigame"]
+position = Vector2(-4.2915344e-06, 7.6293945e-06)
+scale = Vector2(10.80625, 18.414063)
+texture = ExtResource("6_7pu1e")
+
+[node name="Staticareaborder" type="StaticBody2D" parent="AttackMinigame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+position = Vector2(49, -1)
+shape = SubResource("SegmentShape2D_6t8i5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_dw4jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_0npn6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AttackMinigame/Staticareaborder"]
+shape = SubResource("SegmentShape2D_mhv3b")
+
+[node name="MinigameTimer" type="Timer" parent="."]
+wait_time = 7.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0npn6")
+}
+
+[connection signal="pressed" from="Button_Manager/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Button_Manager/SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="pressed" from="Button_Manager/FleeButton" to="." method="_on_flee_button_pressed"]
+[connection signal="area_entered" from="DefenseMinigame/CharacterBody2D/hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="MinigameTimer" to="." method="_on_minigame_timer_timeout"]
